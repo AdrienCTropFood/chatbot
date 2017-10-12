@@ -8,7 +8,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection
 (
     {
-      host     : 'pv81240-001.privatesql'	//'pv81240-001.privatesql.ovh.net',
+      host     : 'pv81240-001.privatesql',	//'pv81240-001.privatesql.ovh.net',
       user     : 'Chatbot',
       password : 'CTropFood2017',
       database : 'CTropFood-Chatbot',
