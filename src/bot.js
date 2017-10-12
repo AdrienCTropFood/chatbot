@@ -82,8 +82,7 @@ export const bot = (body, response, callback) =>
           })
         }
       })
-      .catch((err) =>
-	  {
+      .catch((err) => {
         callback(err)
       })
   }
