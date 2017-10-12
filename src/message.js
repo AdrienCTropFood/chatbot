@@ -41,6 +41,10 @@ const replyMessage = (message) =>
 	{
       message.addReply({ type: 'text', content: 'I don\'t have the reply to this yet :)' })
     }
+	else if(result.action.slug == 'isnt-happy')
+	{
+		result.replies.forEach(replyContent => message.addReply({ type: 'text', 'test' }))
+	}
 	else
 	{
       // Add each reply received from API to replies stack
