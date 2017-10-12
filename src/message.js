@@ -43,7 +43,9 @@ const replyMessage = (message) =>
 		if(result.action.slug == 'nutritioninformation')
 		{
 			console.log('demande info nutrition')
-			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle' })
+			// get all the aliment entities extracted from your text
+			var aliments = res.all('aliment')
+			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ', aliments })
 		}
 		else
 		{
