@@ -4,16 +4,7 @@
  */
 
 const recastai = require('recastai')
-var mysql = require('mysql');
-//var connection = mysql.createConnection
-//(
-//    {
-//      host     : 'pv81240-001.privatesql'	//'pv81240-001.privatesql.ovh.net',
-//      user     : 'Chatbot',
-//      password : 'CTropFood2017',
-//      database : 'CTropFood-Chatbot',
-//    }
-//);
+//var mysql = require('mysql');
 
 // This function is the core of the bot behaviour
 const replyMessage = (message) =>
@@ -39,10 +30,10 @@ const replyMessage = (message) =>
     * Or: Update your mongo DB
     * etc...
     */
-    /*if (result.action)
+    if (result.action)
 	{
 		console.log('The conversation action is: ', result.action.slug);
-    }*/
+    }
 	
 	if (!result.replies.length)
 	{
@@ -64,18 +55,6 @@ const replyMessage = (message) =>
 				aliments.forEach(function(element)
 				{
 					aliment = element.value;
-					//connection.connect();
-					//var queryString = "SELECT * FROM Aliments WHERE Nom = 'tomate'";
-					//connection.query(queryString, function(err, rows, fields)
-					//{
-					//	if (err) throw err;
-					//	for (var i in rows)
-					//	{
-					//		console.log('Calories: ', rows[i].Calories);
-					//	}
-					//});
-					//connection.end();
-					
 					message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
 				});
 			}
