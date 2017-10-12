@@ -31,24 +31,26 @@ const replyMessage = (message) =>
     */
     if (result.action)
 	{
-      console.log('The conversation action is: ', result.action.slug)
+		console.log('The conversation action is: ', result.action.slug)
     }
 	
-	if(result.action.slug == 'isnt-happy')
+	if (!result.replies.length)
 	{
-		console.log('looooool')
-	}
-	
-    // If there is not any message return by Recast.AI for this current conversation
-    if (!result.replies.length)
-	{
-      message.addReply({ type: 'text', content: 'I don\'t have the reply to this yet :)' })
+		message.addReply({ type: 'text', content: 'I don\'t have the reply to this yet :)' })
     }
 	else
 	{
-      // Add each reply received from API to replies stack
-      result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
-    }
+		if(result.action.slug == 'nutritioninformation')
+		{
+			console.log('demande info nutrition')
+			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle' })
+		}
+		else
+		{
+			// Add each reply received from API to replies stack
+			result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
+		}
+	}
 
     // Send all replies
     message.reply()
