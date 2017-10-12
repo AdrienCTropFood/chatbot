@@ -46,10 +46,10 @@ const replyMessage = (message) =>
 			// get all the aliment entities extracted from your text
 			var aliments = result.all('aliment');
 			var aliment = "";
-			for(int i = 0; i < aliments.length; i++)
+			aliments.forEach(function(element)
 			{
-				aliment = aliments[i];
-			}
+				aliment = element;
+			});
 			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ', aliment})
 		}
 		else
