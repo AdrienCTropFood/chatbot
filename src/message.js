@@ -31,7 +31,7 @@ const replyMessage = (message) =>
     */
     if (result.action)
 	{
-		console.log('The conversation action is: ', result.action.slug)
+		console.log('The conversation action is: ', result.action.slug);
     }
 	
 	if (!result.replies.length)
@@ -42,9 +42,11 @@ const replyMessage = (message) =>
 	{
 		if(result.action.slug == 'nutritioninformation')
 		{
-			console.log('demande info nutrition')
+			console.log('demande info nutrition');
+			console.log(result.entities);
+			console.log(result.entities['FOOD']);
 			// get all the aliment entities extracted from your text
-			const aliments = result.get('Food');
+			const aliments = result.get('FOOD');
 			var aliment = "default";
 			if(aliments != null && aliments.length > 0)
 			{
