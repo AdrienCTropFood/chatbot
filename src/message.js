@@ -34,21 +34,20 @@ const replyMessage = (message) =>
       console.log('The conversation action is: ', result.action.slug)
     }
 	
-	
+	if(result.action.slug == 'isnt-happy')
+	{
+		console.log('looooool')
+	}
 	
     // If there is not any message return by Recast.AI for this current conversation
     if (!result.replies.length)
 	{
       message.addReply({ type: 'text', content: 'I don\'t have the reply to this yet :)' })
     }
-	else if(result.action.slug == 'isnt-happy')
-	{
-		result.replies.forEach(replyContent => message.addReply({ type: 'text', 'test' }))
-	}
 	else
 	{
       // Add each reply received from API to replies stack
-      result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
+      result.replies = 'test'
     }
 
     // Send all replies
