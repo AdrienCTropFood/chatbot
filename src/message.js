@@ -44,7 +44,7 @@ const replyMessage = (message) =>
 		{
 			console.log('demande info nutrition')
 			// get all the aliment entities extracted from your text
-			var aliments = result.all('FOOD');
+			var aliments = result.get('FOOD');
 			var aliment = "";
 			aliments.forEach(function(element)
 			{
