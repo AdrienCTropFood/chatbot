@@ -47,7 +47,7 @@ const replyMessage = (message) =>
 	else
 	{
       // Add each reply received from API to replies stack
-      result.replies = 'test'
+      result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
     }
 
     // Send all replies
