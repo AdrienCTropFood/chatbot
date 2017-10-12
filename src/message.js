@@ -46,7 +46,7 @@ const replyMessage = (message) =>
 			// get all the aliment entities extracted from your text
 			const aliments = result.get('FOOD');
 			var aliment = "default";
-			if(aliments.length > 0)
+			if(aliments != null && aliments.length > 0)
 			{
 				aliments.forEach(function(element)
 				{
