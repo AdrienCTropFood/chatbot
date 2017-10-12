@@ -48,6 +48,9 @@ const replyMessage = (message) =>
 			//console.log(result.entities['food']);				//[ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ]
 			//console.log(result.entities['food'][0].value);	//tomate
 			// get all the aliment entities extracted from your text
+			console.log('entities = ');
+			console.log(result.entities);
+			//console.log(result.entities.toString());
 			const aliments = result.entities['food'];
 			var aliment = "default";
 			if(aliments != null)
