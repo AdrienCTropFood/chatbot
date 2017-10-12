@@ -53,7 +53,7 @@ const replyMessage = (message) =>
 					aliment = element;
 				});
 			}
-			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ', aliment})
+			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
 		}
 		else
 		{
