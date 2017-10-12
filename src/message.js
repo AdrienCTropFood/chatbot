@@ -45,14 +45,15 @@ const replyMessage = (message) =>
 			console.log('demande info nutrition');
 			console.log(result.entities);
 			console.log(result.entities['food']);
+			console.log(result.entities['food'].value);
 			// get all the aliment entities extracted from your text
-			const aliments = result.get('FOOD');
+			const aliments = result.entities['food'];
 			var aliment = "default";
-			if(aliments != null && aliments.length > 0)
+			if(aliments != null)
 			{
 				aliments.forEach(function(element)
 				{
-					aliment = element;
+					aliment = element.value;
 				});
 			}
 			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
