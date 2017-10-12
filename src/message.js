@@ -44,8 +44,9 @@ const replyMessage = (message) =>
 		{
 			console.log('demande info nutrition')
 			// get all the aliment entities extracted from your text
-			var aliments = res.all('aliment')
-			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ', aliments })
+			var aliments = res.all('aliment');
+			var aliment = aliments[0];
+			message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ', aliment})
 		}
 		else
 		{
