@@ -64,19 +64,17 @@ const replyMessage = (message) =>
 				aliments.forEach(function(element)
 				{
 					aliment = element.value;
-					connection.connect();
-					var queryString = "SELECT * FROM Aliments WHERE Nom = 'tomate'";
-					connection.query(queryString, function(err, rows, fields)
-					{
-						if (err) throw err;
- 
-						for (var i in rows)
-						{
-							console.log('Calories: ', rows[i].Calories);
-						}
-					});
- 
-					connection.end();
+					//connection.connect();
+					//var queryString = "SELECT * FROM Aliments WHERE Nom = 'tomate'";
+					//connection.query(queryString, function(err, rows, fields)
+					//{
+					//	if (err) throw err;
+					//	for (var i in rows)
+					//	{
+					//		console.log('Calories: ', rows[i].Calories);
+					//	}
+					//});
+					//connection.end();
 					
 					message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
 				});
