@@ -4,6 +4,7 @@
  */
 
 const recastai = require('recastai')
+var mysql = require('mysql');
 
 // This function is the core of the bot behaviour
 const replyMessage = (message) =>
@@ -42,10 +43,10 @@ const replyMessage = (message) =>
 	{
 		if(result.action.slug == 'nutritioninformation')
 		{
-			console.log('demande info nutrition');
-			console.log(result.entities);
-			console.log(result.entities['food']);
-			console.log(result.entities['food'][0].value);
+			//console.log('demande info nutrition');
+			//console.log(result.entities);						//{ food: [ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ] }
+			//console.log(result.entities['food']);				//[ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ]
+			//console.log(result.entities['food'][0].value);	//tomate
 			// get all the aliment entities extracted from your text
 			const aliments = result.entities['food'];
 			var aliment = "default";
