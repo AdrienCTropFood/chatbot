@@ -14,7 +14,7 @@ const replyMessage = (message) =>
   // Get text from message received
   const text = message.content
 
-  console.log('I receive: ', text)
+  console.log('I received : ', text)
 
   // Get senderId to catch unique conversation_token
   const senderId = message.senderId
