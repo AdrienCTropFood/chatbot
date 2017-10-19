@@ -37,7 +37,14 @@ const replyMessage = (message) =>
 	
 	if (result == null || result.replies == null || result.replies.length <= 0)
 	{
-		message.addReply({ type: 'text', content: 'I dont have the reply to this yet...' })
+		if(result.action)
+		{
+			message.addReply({ type: 'text', content: 'Désolé je comprends votre question mais mes bases de données ne contiennent aucune réponse. Réessayez plus tard...' })
+		}
+		else
+		{
+			message.addReply({ type: 'text', content: 'Désolé je ne comprend pas votre question. Pourriez-vous la formuler différemment svp ?' })
+		}
     }
 	else
 	{
@@ -73,7 +80,7 @@ const replyMessage = (message) =>
 		}
 		else
 		{
-			console.log('Result.action NULL');
+			message.addReply({ type: 'text', content: 'Désolé je ne comprend pas votre question. Pourriez-vous la formuler différemment svp ?' })
 		}
 	}
 
