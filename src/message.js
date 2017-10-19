@@ -37,41 +37,43 @@ const replyMessage = (message) =>
 	
 	if (result == null || result.replies == null || result.replies.length <= 0)
 	{
-		Console.log('lol');
-	}
-	
-	/*if (result == null || result.replies == null || result.replies.length <= 0)
-	{
 		message.addReply({ type: 'text', content: 'I dont have the reply to this yet...' })
-    }*/
+    }
 	else
 	{
-		if(result.action.slug == 'nutritioninformation')
+		if(result.action)
 		{
-			//console.log('demande info nutrition');
-			//console.log(result.entities);						//{ food: [ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ] }
-			//console.log(result.entities['food']);				//[ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ]
-			//console.log(result.entities['food'][0].value);	//tomate
-			// get all the aliment entities extracted from your text
-			console.log('entities = ');
-			console.log(result.entities);
-			//console.log(result.entities.toString());
-			const aliments = result.entities['food'];
-			var aliment = "default";
-			if(aliments != null)
+			if(result.action.slug == 'nutritioninformation')
 			{
-				aliments.forEach(function(element)
+				//console.log('demande info nutrition');
+				//console.log(result.entities);						//{ food: [ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ] }
+				//console.log(result.entities['food']);				//[ { value: 'tomate', confidence: 0.95, raw: 'tomate' } ]
+				//console.log(result.entities['food'][0].value);	//tomate
+				// get all the aliment entities extracted from your text
+				console.log('entities = ');
+				console.log(result.entities);
+				//console.log(result.entities.toString());
+				const aliments = result.entities['food'];
+				var aliment = "default";
+				if(aliments != null)
 				{
-					aliment = element.value;
-					message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
-				});
+					aliments.forEach(function(element)
+					{
+						aliment = element.value;
+						message.addReply({ type: 'text', content: 'Vous avez demandé une information nutritionelle sur ' + aliment})
+					});
+				}
+				
 			}
-			
+			else
+			{
+				// Add each reply received from API to replies stack
+				result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
+			}
 		}
 		else
 		{
-			// Add each reply received from API to replies stack
-			result.replies.forEach(replyContent => message.addReply({ type: 'text', content: replyContent }))
+			console.log('Result.action NULL');
 		}
 	}
 
