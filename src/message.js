@@ -40,10 +40,10 @@ const replyMessage = (message) =>
 		Console.log('lol');
 	}
 	
-	if (result == null || result.replies == null || result.replies.length <= 0)
+	/*if (result == null || result.replies == null || result.replies.length <= 0)
 	{
 		message.addReply({ type: 'text', content: 'I dont have the reply to this yet...' })
-    }
+    }*/
 	else
 	{
 		if(result.action.slug == 'nutritioninformation')
