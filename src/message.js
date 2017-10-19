@@ -37,16 +37,6 @@ const replyMessage = (message) =>
 	
 	if (result.replies.length <= 0)
 	{
-		
-	}
-	
-	if (!result.replies.length)
-	{
-		
-	}
-	
-	if (!result.replies.length)
-	{
 		message.addReply({ type: 'text', content: 'I dont have the reply to this yet...' })
     }
 	else
