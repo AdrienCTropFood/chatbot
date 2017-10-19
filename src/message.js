@@ -35,9 +35,19 @@ const replyMessage = (message) =>
 		console.log('The conversation action is: ', result.action.slug);
     }
 	
+	if (result.replies.length <= 0)
+	{
+		
+	}
+	
 	if (!result.replies.length)
 	{
-		message.addReply({ type: 'text', content: 'I dont have the reply to this yet :)' })
+		
+	}
+	
+	if (!result.replies.length)
+	{
+		message.addReply({ type: 'text', content: 'I dont have the reply to this yet...' })
     }
 	else
 	{
